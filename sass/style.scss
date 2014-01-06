@@ -1,0 +1,26 @@
+/*
+Theme Name: Ashdown
+Theme URI: http://dougal.co
+Author: Dougal Crowder
+Author URI: http://dougal.co
+Description: Ashdown is a starter theme named after Ashdown Forest in East Sussex. It s a personal mashup of the HTML5 Boilerplate, Blankslate by Tidythemes and my own preferences. It relies on Codekit.
+Version: 0.9
+
+*/
+
+
+// bourbon.and neat io mixin library via codekit
+@import "bourbon";
+@import "neat";
+
+@import "normalize";
+@import "wp";
+@import "grid";
+@import "boilerplate-a";
+@import "varmixins";
+@import "fonts";
+@import "nav";
+@import "site-styles";
+@import "media";
+@import 'plugins';
+@import "boilerplate-b";

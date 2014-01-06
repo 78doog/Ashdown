@@ -1,0 +1,39 @@
+
+$header: #970000;
+$text: #528b3a;
+$link: #323232;
+$linkhov: #717174;
+
+$width: 1200px;
+$margin: 12px;
+$pad: 12px;
+$visual-grid: true;
+$visual-grid-index: front;
+
+@mixin transition {
+	-webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease;
+}
+
+@mixin shadow {
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1); -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1); box-shadow: 0 1px 2px rgba(0,0,0,0.1); 
+}
+@mixin text-shadow {
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+@mixin text-shadow-drk {
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+@mixin text-shadow-double {
+	text-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 1px 6px rgba(0,0,0,0.1);
+}
+@mixin breakpoint($point) {
+  @if $point == big {
+    @media (max-width: 1600px) { @content; }
+  }
+  @else if $point == med {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $point == mob {
+    @media (max-width: 767px)  { @content; }
+  }
+}
