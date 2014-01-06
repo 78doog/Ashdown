@@ -1,0 +1,17 @@
+## OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+## Sass
+.sass-cache
+
+## PSD's etc
+.psd
+.ai
+.pxm
+.sketch
