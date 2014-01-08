@@ -3,13 +3,16 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    <Dougal Crowder> -- <King> -- <dougalcrowder>
 
 # THANKS
 
-    <name>
+    <HTML5 Boilerplate team>
+    <Codekit>
+    <icomoon>
+    <Entypo>
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    jQuery, Modernizr
+    HTML5, CSS3, Entypo
+    jQuery, Modernizr, SASS
