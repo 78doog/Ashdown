@@ -1,0 +1,88 @@
+// Form Styles Here... fuckoff? Where?
+
+fieldset {
+  background: $shade;
+  border: 1px solid $border;
+  margin: 0 0 $marg/2 0;
+  padding: $pad/2;
+}
+
+input,
+label,
+select {
+  display: block;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: $marg/2;
+
+  &.required:after {
+    content: "*";
+  }
+
+  abbr {
+    display: none;
+  }
+}
+
+textarea,
+#{$all-text-inputs},
+select[multiple=multiple] {
+  @include box-sizing(border-box);
+  background-color: $sitebg;
+  border-radius: $form-border-radius;
+  border: 1px solid $form-border-color;
+  margin-bottom: $marg/2;
+  padding: $pad/3;
+  width: 100%;
+
+  &:hover {
+    border-color: $form-border-color-hover;
+  }
+
+  &:focus {
+    border-color: $form-border-color-focus;
+    outline: none;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="search"] {
+  @include appearance(none);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin-right: $marg/4;
+}
+
+input[type="file"] {
+  padding-bottom: $marg/2;
+  width: 100%;
+}
+
+select {
+  margin-bottom:  $marg;
+  max-width: 100%;
+  width: auto;
+}
+
+// Search form / widget
+.search-form {
+	input[type="search"] {
+		@include span-columns(18);
+	}
+	button[type="submit"] {
+		@include span-columns(6);
+		@include omega;
+		height: 27px;
+		line-height: 27px;
+		border-radius: 2px;
+		border: 0;
+	}
+}

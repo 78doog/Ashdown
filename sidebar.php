@@ -6,4 +6,12 @@
 </ul>
 </div>
 <?php endif; ?>
+
+<?php if ( is_active_sidebar( 'secondary-widget-area' ) ) : ?>
+<div id="secondary" class="widget-area">
+<ul class="xoxo">
+<?php dynamic_sidebar( 'secondary-widget-area' ); ?>
+</ul>
+</div>
+<?php endif; ?>
 </aside>

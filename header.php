@@ -11,8 +11,14 @@
 	<div id="wrapper" class="hfeed">
 		<header id="header" role="banner">
 			<section class="head-inner inner">
-				<div id="site-title"><?php if ( ! is_singular() ) { echo '<h1>'; } ?><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( get_bloginfo( 'name' ), 'ashdown' ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a><?php if ( ! is_singular() ) { echo '</h1>'; } ?></div>
-				<div id="site-description"><?php bloginfo( 'description' ); ?></div>
+				<div id="site-title">
+				<?php if ( is_front_page() ) { echo '<h1>'; } ?>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( get_bloginfo( 'name' ), 'ashdown' ); ?>" rel="home"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></a>
+				<?php if ( is_front_page() ) { echo '</h1>'; } ?>
+				<?php if(get_bloginfo('description') <> '') { ?>
+					<div id="site-description"><?php bloginfo( 'description' ); ?></div>
+				<?php } ?>
+				</div>
 				<nav id="menu" role="navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
 				</nav>

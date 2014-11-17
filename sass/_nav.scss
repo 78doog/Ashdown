@@ -1,0 +1,81 @@
+nav#menu {
+	div {
+		float:right;
+		position: relative;
+		ul.menu {
+			text-align:center;
+			margin: 0;
+			padding: 0;
+			li {
+				float:left;
+				display:inline;
+				@include transition;
+				a {
+					display:block;
+					padding:$pad/1.5 $pad*1.5;
+					color:$menu;
+				}
+				ul {
+					position:absolute;
+					width:200px;
+					background:$menubg;
+					margin: 0;
+					padding: 0;
+					li {
+						width:200px;
+						a {
+							display:block;
+							padding:$pad/1.5 $pad*1.5;
+							color:$menu;
+							&:hover {
+								background-color: $menubgover;
+								color: $menuover;
+							}
+						}
+					}
+				}
+				.fallback {
+					display: none;
+				}
+				&:hover {
+					background-color: $menubgover;
+					color: $menuover;
+					.fallback {
+						display: block;
+					}
+				}
+			}
+			li.current_page_item, li.current_page_parent {
+				background-color: $menubgactive;
+				color: $menuactive;
+			}
+			// Remove this if using a left aligned menu
+			li.last-menu-item {
+				ul {
+					right: 0;
+				}
+			}
+		}
+	}		
+}
+// Footer navs
+.footer-list {
+	list-style-type: none;
+	padding: 0;
+	ul {
+		list-style-type: none;
+		padding: 0;
+	}
+	li {
+		padding: $pad/4 0;
+		a {
+			color: $footerlink;
+			&:hover {
+				color: $footerlinkover;
+			}
+		}
+	}
+}
+#nav-below {
+	padding: $pad*2 0 $pad*3 0;
+}

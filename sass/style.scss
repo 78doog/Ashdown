@@ -8,19 +8,29 @@ Version: 0.9
 
 */
 
+// grid settings
+$grid-columns: 24;
+$max-width: 1200px;
+$gutter: 1em;
+$visual-grid: true;
+$visual-grid-color: rgba(179, 212, 252, 0.2);
 
 // bourbon.and neat io mixin library via codekit
-@import "bourbon";
-@import "neat";
+@import "bourbon", "neat";
+
+
 
 @import "normalize";
 @import "wp";
-@import "grid";
 @import "boilerplate-a";
 @import "varmixins";
+@import "layout";
 @import "fonts";
+@import "forms";
+@import "tables";
 @import "nav";
-@import "site-styles";
+@import "pages";
+@import "posts";
 @import "media";
 @import 'plugins';
 @import "boilerplate-b";

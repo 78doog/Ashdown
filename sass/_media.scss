@@ -1,0 +1,20 @@
+#content {
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+}
+
+// Generic Wordpress image layouts
+.alignright{
+	float: right;
+	margin: 0 0 $margin $margin;
+}
+.alignleft {
+	float: left;
+	margin: 0 $margin $margin 0;
+}
+.aligncenter{
+	margin: 0 auto;
+}

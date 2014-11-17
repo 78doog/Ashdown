@@ -1,14 +1,48 @@
+$sitebg: #ffffff;
+$header: #660000;
+$headerbg: #f2f2f2;
+$contentbg: #970000;
+$footerbg: #111111;
+$footer: #777777;
 
-$header: #970000;
-$text: #528b3a;
-$link: #323232;
-$linkhov: #717174;
+// text and standard links
+$text: #333333;
+$link: #0971B2;
+$linkover: #1485CC;
+$linkactive: #1485CC;
+$footerlink: #f4f4f4;
+$footerlinkover: #ffffff;
+
+
+// menu links
+$menu: #770000;
+$menuover: #990000;
+$menuactive: #880000;
+// menu backgrounds
+$menubg: $headerbg;
+$menubgover: darken($menubg, 10%);
+$menubgactive: $menubgover;
+
+$white: #fff;
+$black: #000;
+
+// Border colors tables forms etc
+$border: #999;
+$form-border-radius: 2px;
+$form-border-color: $border;
+$form-border-color-hover: darken($border,5%);
+$form-border-color-focus: darken($border,15%);
+
+
+// Some things need a darker background
+$shade: #f8f8f8;
 
 $width: 1200px;
 $margin: 12px;
-$pad: 12px;
-$visual-grid: true;
-$visual-grid-index: front;
+$marg: $margin;
+$padding: 12px;
+$pad: $padding;
+
 
 @mixin transition {
 	-webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease;
@@ -30,8 +64,14 @@ $visual-grid-index: front;
   @if $point == big {
     @media (max-width: 1600px) { @content; }
   }
+  @else if $point == gt960 {
+    @media (min-width: 960px) { @content; }
+  }
   @else if $point == med {
     @media (min-width: 768px) { @content; }
+  }
+  @else if $point == gt480 {
+    @media (min-width: 480px) { @content; }
   }
   @else if $point == mob {
     @media (max-width: 767px)  { @content; }

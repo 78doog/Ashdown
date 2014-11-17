@@ -1,0 +1,107 @@
+body {
+	background-color: $sitebg;
+}
+#header {
+	background-color: $headerbg;
+	#site-title{
+		@include breakpoint(med){
+			@include span-columns(6);
+		}
+		h1 {
+			font-size: 15px;
+			margin: 0;
+			line-height: 1;
+		}
+		a {
+			font-size: 15px;
+			font-weight: bold;
+			margin: 0;
+			padding: 0;
+			line-height: 1.466666;	
+		}
+	}
+	#menu {
+		@include breakpoint(med){
+			@include span-columns(18);
+			@include omega;
+		}
+	}
+}
+#content {
+	// for pages
+	.page {
+		@include breakpoint(med){
+			@include span-columns(16);
+		}
+	}
+	// for single posts
+	.inside {
+		@include breakpoint(med){
+			@include span-columns(16);
+		}
+	}
+	.post-archives {
+		@include breakpoint(med){
+			@include span-columns(16);
+		}
+	}
+	aside {
+		@include breakpoint(med){
+			@include span-columns(8);
+			@include omega;
+		}
+	}
+}
+#footer {
+	background-color: $footerbg;
+	color: $footer;
+	.footer-inner {
+		padding: $pad*3 $pad $pad*2 $pad;
+	}
+	#copyright {
+		@include span-columns(24);
+		text-align: center;
+		font-size: 86%;
+		padding: $pad*3 0 $pad;
+		a {
+			color: $footerlink;
+			&:hover {
+				color: $footerlinkover;
+			}
+		}
+	}
+}
+// Footer Widget Areas
+.footer-list {
+	margin: 0;
+	@include span-columns(24);
+	@include breakpoint(gt480){
+		@include span-columns(12);
+	}
+	@include breakpoint(med){
+		@include span-columns(6);
+	}
+}
+#footer-two {
+	@include breakpoint(gt480){
+		@include omega;
+	}
+}
+#footer-four {
+	@include omega;
+}
+
+
+
+#sidebar {
+	ul.xoxo {
+		list-style-type: none;
+		margin: 0;
+	}
+}
+
+.inner {
+	@include outer-container;
+	margin: 0 auto;
+	padding: 0 $pad;
+}
