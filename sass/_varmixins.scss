@@ -62,7 +62,10 @@ $pad: $padding;
 }
 @mixin breakpoint($point) {
   @if $point == big {
-    @media (max-width: 1600px) { @content; }
+    @media (min-width: 1440px) { @content; }
+  }
+   @else if $point == gt1260 {
+    @media (min-width: 960px) { @content; }
   }
   @else if $point == gt960 {
     @media (min-width: 960px) { @content; }

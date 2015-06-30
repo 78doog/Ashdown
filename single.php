@@ -5,10 +5,17 @@
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<header>
 				<?php if ( is_singular() ) { echo '<h1 class="entry-title">'; } else { echo '<h2 class="entry-title">'; } ?><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a><?php if ( is_singular() ) { echo '</h1>'; } else { echo '</h2>'; } ?> <?php edit_post_link(); ?>
-				<?php if ( !is_search() ) get_template_part( 'entry', 'meta' ); ?>
+				<section class="entry-meta">
+                    <span class="author vcard"><?php the_author_posts_link(); ?></span>
+                    <span class="entry-date"><?php the_time( get_option( 'date_format' ) ); ?></span>
+                </section>
 			</header>
-			<?php get_template_part( 'entry', ( is_archive() || is_search() ? 'summary' : 'content' ) ); ?>
-			<?php if ( !is_search() ) get_template_part( 'entry-footer' ); ?>
+			<section class="entry-content">
+            	<?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
+            	<?php the_content(); ?>
+            	<div class="entry-links"><?php wp_link_pages(); ?></div>
+            </section>
+			<?php get_template_part( 'entry-footer' ); ?>
 		</article>
 		<?php if ( ! post_password_required() ) comments_template( '', true ); ?>
 		<?php endwhile; endif; ?>

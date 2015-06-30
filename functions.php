@@ -14,11 +14,13 @@ array( 'main-menu' => __( 'Main Menu', 'ashdown' ) )
 // Register some javascript files, because otherwise the world will probably end. Using modernizr development version, remember to strip it out for a minified production version or just get rid of it. All js plugins and scripts are boiled down into the one file called scripts-min.js... codekit does it. 
 
 function ashdown_load_javascript_files() {
-	wp_register_script( 'modernizr', get_stylesheet_directory_uri().'/js/modernizr-latest.js', '2.8.3', false );
-	wp_register_script( 'scripts', get_stylesheet_directory_uri().'/js/scripts-min.js', array('jquery'), '1.0.0', true );
+    if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
+	wp_register_script( 'modernizr', get_stylesheet_directory_uri().'/js/min/modernizr-latest-min.js', '2.8.3', false );
+	wp_register_script( 'scripts', get_stylesheet_directory_uri().'/js/min/scripts-min.js', array('jquery'), '1.0.0', true );
 	
 		wp_enqueue_script('modernizr');
 		wp_enqueue_script('scripts');
+    }
 
 }
 add_action( 'wp_enqueue_scripts', 'ashdown_load_javascript_files' );
@@ -211,6 +213,46 @@ function my_update_comment_field($comment_field) {
 add_filter('comment_form_field_comment','my_update_comment_field');
 
 
+// Stolen from HTML5_blank
+// Remove invalid rel attribute values in the categorylist
+function remove_category_rel_from_category_list($thelist)
+{
+    return str_replace('rel="category tag"', 'rel="tag"', $thelist);
+}
+// Add page slug to body class, love this - Credit: Starkers Wordpress Theme
+function add_slug_to_body_class($classes)
+{
+    global $post;
+    if (is_home()) {
+        $key = array_search('blog', $classes);
+        if ($key > -1) {
+            unset($classes[$key]);
+        }
+    } elseif (is_page()) {
+        $classes[] = sanitize_html_class($post->post_name);
+    } elseif (is_singular()) {
+        $classes[] = sanitize_html_class($post->post_name);
+    }
+    return $classes;
+}
+// Remove the width and height attributes from inserted images
+function remove_width_attribute( $html ) {
+   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+   return $html;
+}
+
+// Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
+function html5wp_pagination()
+{
+    global $wp_query;
+    $big = 999999999;
+    echo paginate_links(array(
+        'base' => str_replace($big, '%#%', get_pagenum_link($big)),
+        'format' => '?paged=%#%',
+        'current' => max(1, get_query_var('paged')),
+        'total' => $wp_query->max_num_pages
+    ));
+}
 
 // Enable HTML5 in the search form
 add_theme_support( 'html5', array( 'search-form' ) );

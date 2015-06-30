@@ -1,7 +1,12 @@
+$em-base: 18px;
+$modular-scale-ratio: $golden;
+html {
+    font-size: 18px;
+}
 body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 400;
-	font-size: 15px;
+	font-size: rem(16);
 	line-height: 1.466666;
 	@include font-feature-settings("kern","liga","tnum");
 	-webkit-font-smoothing: antialiased;
@@ -14,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: $header;
 }
 h1 {
-  font-size: 30px;
+  font-size: rem(30);
   line-height: 52px;
   margin: 14px 0 0 0;
 }
